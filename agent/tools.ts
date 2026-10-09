@@ -127,4 +127,97 @@ export const tools: Tool[] = [
       };
     },
   },
+  
+  // 5. Quiz generator
+  {
+    name: "quiz_generator",
+    description:
+      "Create a structured multiple-choice quiz for a student. Generate questions, four answer options per question, the correct answer, and an explanation for each answer.",
+    parameters: {
+      type: "object",
+      properties: {
+        topic: {
+          type: "string",
+          description: "The subject or topic for the quiz.",
+        },
+        difficulty: {
+          type: "string",
+          enum: ["easy", "medium", "hard"],
+          description: "The difficulty level of the quiz.",
+        },
+        questions: {
+          type: "array",
+          description:
+            "The quiz questions to generate, each with four options, a correct answer, and an explanation.",
+          items: {
+            type: "object",
+            properties: {
+              question: {
+                type: "string",
+                description: "The question text.",
+              },
+              options: {
+                type: "array",
+                items: { type: "string" },
+                description: "Exactly four answer options.",
+              },
+              correct_answer: {
+                type: "string",
+                description: "The exact text of the correct option.",
+              },
+              explanation: {
+                type: "string",
+                description: "Why the correct answer is correct.",
+              },
+            },
+            required: [
+              "question",
+              "options",
+              "correct_answer",
+              "explanation",
+            ],
+          },
+        },
+      },
+      required: ["topic", "difficulty", "questions"],
+    },
+    run: async ({ topic, difficulty, questions }) => {
+      if (!Array.isArray(questions) || questions.length === 0) {
+        throw new Error("The quiz must contain at least one question.");
+      }
+
+      const validatedQuestions = questions.map(
+        (q: {
+          question: string;
+          options: string[];
+          correct_answer: string;
+          explanation: string;
+        }) => {
+          if (
+            !Array.isArray(q.options) ||
+            q.options.length !== 4 ||
+            !q.options.includes(q.correct_answer)
+          ) {
+            throw new Error(
+              "Each question must have four options and a correct answer matching one of them."
+            );
+          }
+
+          return {
+            question: q.question,
+            options: q.options,
+            correct_answer: q.correct_answer,
+            explanation: q.explanation,
+          };
+        }
+      );
+
+      return {
+        topic,
+        difficulty,
+        total_questions: validatedQuestions.length,
+        questions: validatedQuestions,
+      };
+    },
+  },
 ];
