@@ -4,6 +4,30 @@
 
 > Plan smarter. Practise better. Learn with AI.
 
+<p align="center">
+  <img src="public/logo.png" alt="StudyPilot AI Logo" width="180">
+</p>
+
+<h1 align="center">StudyPilot AI</h1>
+
+<p align="center">
+  Your AI-powered study planner and quiz assistant
+</p>
+
+<p align="center">
+  Plan smarter. Practise better. Learn with AI.
+</p>
+
+<p align="center">
+  <a href="https://skills-invited-deleted-baghdad.trycloudflare.com">Live Demo</a> ·
+  <a href="https://github.com/Sakethram2005/agentmaxxing">GitHub</a> ·
+</p>
+
+<p align="center">
+  <a href="https://x.com/StudyPilotAI_">Product on X</a> ·
+  <a href="https://x.com/SakethRam311820">Personal X</a>
+</p>
+
 ## 🚀 About the Project
 
 StudyPilot AI is a Gemini-powered AI agent designed to help students organize their learning. Students can generate structured study schedules, create multiple-choice quizzes, check their agent wallet, roll dice, and retrieve weather information through a paid API demonstration.
