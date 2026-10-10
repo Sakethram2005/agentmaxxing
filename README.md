@@ -5,7 +5,7 @@
 > Plan smarter. Practise better. Learn with AI.
 
 <p align="center">
-  <img src="public/logo.png" alt="StudyPilot AI Logo" width="180">
+  <img src="product_image.jpg" alt="StudyPilot AI Product Image" width="220">
 </p>
 
 <h1 align="center">StudyPilot AI</h1>
